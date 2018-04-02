@@ -4,3 +4,4 @@ easy.py
 .env
 .DS_Store
 latest.dump
+.vscode
