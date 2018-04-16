@@ -22,7 +22,29 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 @app.route('/')
 def index():
     submissions = getSubmissions()
-    return render_template('index.html', submissions=submissions, modal="none")
+    subs = sorted(submissions, key=lambda d: d['points'], reverse=True)
+    return render_template(
+        'index.html',
+        submissions=addPlace(subs),
+        modal="none",
+        mdebug=print_in_console)
+
+
+def print_in_console(message):
+    print str(message)
+
+
+def addPlace(submissions):
+    index = 0
+    place = 0
+    prevValue = 9999
+    for submission in submissions:
+        index += 1
+        if submission['points'] != prevValue:
+            place = index
+        prevValue = submission['points']
+        submission['place'] = place
+    return submissions
 
 
 def getSubmissions():
@@ -60,6 +82,48 @@ def getSubmissions():
         {
             'name': 'Nacho Torras',
             'points': 0,
+            'paid': True,
+            'winner': 'Spain'
+        },
+        {
+            'name': 'Nacho Torras',
+            'points': 0,
+            'paid': True,
+            'winner': 'Spain'
+        },
+        {
+            'name': 'Nacho Torras',
+            'points': 0,
+            'paid': True,
+            'winner': 'Spain'
+        },
+        {
+            'name': 'Nacho Torras',
+            'points': 0,
+            'paid': True,
+            'winner': 'Spain'
+        },
+        {
+            'name': 'Nacho Torras',
+            'points': 3,
+            'paid': True,
+            'winner': 'Spain'
+        },
+        {
+            'name': 'Nacho Torras',
+            'points': 2,
+            'paid': True,
+            'winner': 'Spain'
+        },
+        {
+            'name': 'Nacho Torras',
+            'points': 2,
+            'paid': True,
+            'winner': 'Spain'
+        },
+        {
+            'name': 'Nacho Torras',
+            'points': 1,
             'paid': True,
             'winner': 'Spain'
         },

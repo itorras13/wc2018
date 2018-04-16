@@ -48,10 +48,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#rankings">Rankings</a>
+                        <a class="nav-link js-scroll-trigger" href="#rules">Rules</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#submit">Submit</a>
+                        <a class="nav-link js-scroll-trigger" href="#points">Points</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#standings">Standings</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#payment">Payment</a>
@@ -60,54 +63,8 @@
             </div>
         </div>
     </nav>
-
-    <div class="container rankings">
-
-        <div class="jumbotron">
-            {% if submissions != [] %}
-            <p>Current Payouts: 1st: ${{submissions|count * 20 * 0.60}} 2nd: ${{submissions|count * 20 * 0.25}} 3rd: ${{submissions|count
-                * 20 * 0.1}}</p>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Place</th>
-                        <th>Name</th>
-                        <th>Winner</th>
-                        <th>Points</th>
-                        <th>Paid</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% set place = 0 %} {% set index = 0 %} {% set previous_value = 9999 %} {% for submission in submissions %} {% set index
-                    = index + 1 %} {% if submission['points'] != previous_value %} {% set place = index %} {% endif %} {%
-                    set previous_value = submission['points'] %}
-                    <tr>
-                        <td>{{place}}</td>
-                        <td>
-                            <a href="">{{submission['name']}}</a>
-                        </td>
-
-
-                        <td>{{submission['winner']}}</td>
-                        <td>{{submission['points']}}</td>
-                        {% if submission['paid'] %}
-                        <td>
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        </td>
-                        {% else %}
-                        <td>
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        </td>
-                        {% endif %}
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            {% else %} Standings will be shown once all submissions are made {% endif %}
-
-        </div>
-
-    </div>
+    {% include '/index/rules.html' %} {%include '/index/points.html' %} {%include '/index/payment.html' %} {% include '/index/standings.html'
+    %}
     <!-- /container -->
 
     <script src="static/js/jquery.min.js"></script>

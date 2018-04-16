@@ -5,3 +5,14 @@
 body {
   padding-top: 70px;
 }
+
+.scrollableTable {
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 300px;
+}
+
+.longRow {
+  text-align: center;
+  font-weight: bold;
+}

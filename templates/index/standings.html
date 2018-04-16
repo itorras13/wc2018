@@ -1,0 +1,41 @@
+<div class="container" id="standings">
+
+    <div class="jumbotron">
+        <h1>Standings</h1>
+        <div class="scrollableTable">
+            {% if submissions != [] %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Place</th>
+                        <th>Name</th>
+                        <th>Winner</th>
+                        <th>Points</th>
+                        <th>Paid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for submission in submissions %}
+                    <tr>
+                        <td>{{submission['place']}}</td>
+                        <td>{{submission['name']}}</td>
+                        <td>{{submission['winner']}}</td>
+                        <td>{{submission['points']}}</td>
+                        {% if submission['paid'] %}
+                        <td>
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                        </td>
+                        {% else %}
+                        <td>
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %} Standings will be shown once all submissions are made {% endif %}
+        </div>
+    </div>
+
+</div>
