@@ -101,7 +101,8 @@ def get_submissions(type):
             new_sub['email'] = sub.email
             new_sub['name'] = sub.first_name + ' ' + sub.last_name
             new_sub['sub_num'] = sub.submission_number
-            new_sub['winner'] = sub.final
+            # new_sub['winner'] = sub.final
+            new_sub['winner'] = '---'
             new_sub['points'] = sub.points
             new_sub['paid'] = sub.paid
             new_sub['id'] = sub.id
