@@ -101,38 +101,38 @@ var inputs = [
 ];
 
 var goals_per_team = {
-  Egypt: { goals_for: 0, goals_against: 0 },
-  Russia: { goals_for: 0, goals_against: 0 },
-  "Saudi Arabia": { goals_for: 0, goals_against: 0 },
-  Uruguay: { goals_for: 0, goals_against: 0 },
-  Morocco: { goals_for: 0, goals_against: 0 },
-  Iran: { goals_for: 0, goals_against: 0 },
-  Portugal: { goals_for: 0, goals_against: 0 },
-  Spain: { goals_for: 0, goals_against: 0 },
-  France: { goals_for: 0, goals_against: 0 },
-  Australia: { goals_for: 0, goals_against: 0 },
-  Peru: { goals_for: 0, goals_against: 0 },
-  Denmark: { goals_for: 0, goals_against: 0 },
-  Argentina: { goals_for: 0, goals_against: 0 },
-  Iceland: { goals_for: 0, goals_against: 0 },
-  Croatia: { goals_for: 0, goals_against: 0 },
-  Nigeria: { goals_for: 0, goals_against: 0 },
-  Serbia: { goals_for: 0, goals_against: 0 },
-  Brazil: { goals_for: 0, goals_against: 0 },
-  "Costa Rica": { goals_for: 0, goals_against: 0 },
-  Switzerland: { goals_for: 0, goals_against: 0 },
-  Germany: { goals_for: 0, goals_against: 0 },
-  Mexico: { goals_for: 0, goals_against: 0 },
-  Sweden: { goals_for: 0, goals_against: 0 },
-  "South Korea": { goals_for: 0, goals_against: 0 },
-  Belgium: { goals_for: 0, goals_against: 0 },
-  Panama: { goals_for: 0, goals_against: 0 },
-  Tunisia: { goals_for: 0, goals_against: 0 },
-  England: { goals_for: 0, goals_against: 0 },
-  Colombia: { goals_for: 0, goals_against: 0 },
-  Japan: { goals_for: 0, goals_against: 0 },
-  Poland: { goals_for: 0, goals_against: 0 },
-  Senegal: { goals_for: 0, goals_against: 0 }
+  Egypt: { for: 0, against: 0 },
+  Russia: { for: 0, against: 0 },
+  "Saudi Arabia": { for: 0, against: 0 },
+  Uruguay: { for: 0, against: 0 },
+  Morocco: { for: 0, against: 0 },
+  Iran: { for: 0, against: 0 },
+  Portugal: { for: 0, against: 0 },
+  Spain: { for: 0, against: 0 },
+  France: { for: 0, against: 0 },
+  Australia: { for: 0, against: 0 },
+  Peru: { for: 0, against: 0 },
+  Denmark: { for: 0, against: 0 },
+  Argentina: { for: 0, against: 0 },
+  Iceland: { for: 0, against: 0 },
+  Croatia: { for: 0, against: 0 },
+  Nigeria: { for: 0, against: 0 },
+  Serbia: { for: 0, against: 0 },
+  Brazil: { for: 0, against: 0 },
+  "Costa Rica": { for: 0, against: 0 },
+  Switzerland: { for: 0, against: 0 },
+  Germany: { for: 0, against: 0 },
+  Mexico: { for: 0, against: 0 },
+  Sweden: { for: 0, against: 0 },
+  "South Korea": { for: 0, against: 0 },
+  Belgium: { for: 0, against: 0 },
+  Panama: { for: 0, against: 0 },
+  Tunisia: { for: 0, against: 0 },
+  England: { for: 0, against: 0 },
+  Colombia: { for: 0, against: 0 },
+  Japan: { for: 0, against: 0 },
+  Poland: { for: 0, against: 0 },
+  Senegal: { for: 0, against: 0 }
 };
 
 var groupA = { Egypt: 0, Russia: 0, "Saudi Arabia": 0, Uruguay: 0 };
@@ -154,6 +154,8 @@ var groups = {
   g: groupG,
   h: groupH
 };
+
+var standings = { a: {}, b: {}, c: {}, d: {}, e: {}, f: {}, g: {}, h: {} };
 
 function showTab(n) {
   // This function will display the specified tab of the form...
@@ -237,16 +239,18 @@ function getGroupStandings() {
     group = inputs[i][0];
     home = inputs[i];
     away = inputs[i + 1];
+
     home_score = parseInt($('input[name="' + home + '"]').val());
     home_team = $('label[for="' + home + '"]').text();
+
     away_score = parseInt($('input[name="' + away + '"]').val());
     away_team = $('label[for="' + away + '"]').text();
-    console.log(home_team);
-    console.log(away_team);
-    goals_per_team[home_team].goals_for += home_score;
-    goals_per_team[away_team].goals_for += away_score;
-    goals_per_team[home_team].goals_against += away_score;
-    goals_per_team[away_team].goals_against += home_score;
+
+    goals_per_team[home_team].for += home_score;
+    goals_per_team[away_team].for += away_score;
+    goals_per_team[home_team].against += away_score;
+    goals_per_team[away_team].against += home_score;
+
     if (home_score > away_score) {
       groups[group][home_team] += 3;
     } else if (home_score < away_score) {
@@ -256,6 +260,147 @@ function getGroupStandings() {
       groups[group][away_team] += 1;
     }
   }
-  console.log(goals_per_team);
-  console.log(groups);
+
+  Object.keys(goals_per_team).forEach(team => {
+    goals_per_team[team].diff =
+      goals_per_team[team].for - goals_per_team[team].against;
+  });
+
+  group_letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
+  group_letters.forEach(curr => {
+    var currGroup = groups[curr];
+
+    sorted = Object.keys(currGroup).sort(function(a, b) {
+      return (
+        currGroup[b] - currGroup[a] ||
+        goals_per_team[b].diff - goals_per_team[a].diff ||
+        goals_per_team[b].for - goals_per_team[a].for
+      );
+    });
+
+    standings[curr].first_place = sorted[0];
+    standings[curr].second_place = sorted[1];
+
+    //   if (currGroup[sorted[0]] > currGroup[sorted[1]]) {
+    //     standings[curr].first_place = sorted[0];
+    //     if (currGroup[sorted[1]] > currGroup[sorted[2]]) {
+    //       standings[curr].second_place = sorted[1];
+    //     } else if (currGroup[sorted[1]] === currGroup[sorted[3]]) {
+    //       standings[curr].second_place = threeWayTie(
+    //         goals_per_team,
+    //         sorted[1],
+    //         sorted[2],
+    //         sorted[3]
+    //       );
+    //     } else {
+    //       standings[curr].second_place = twoWayTie(
+    //         goals_per_team,
+    //         sorted[1],
+    //         sorted[2]
+    //       );
+    //     }
+    //   } else if (currGroup[sorted[0]] > currGroup[sorted[2]]) {
+    //     standings[curr].first_place = twoWayTie(
+    //       goals_per_team,
+    //       sorted[0],
+    //       sorted[1]
+    //     );
+    //     if (standings[curr].first_place == sorted[0]) {
+    //       standings[curr].second_place = sorted[1];
+    //     } else {
+    //       standings[curr].second_place = sorted[0];
+    //     }
+    //   } else if (currGroup[sorted[0]] > currGroup[sorted[3]]) {
+    //     standings[curr].first_place = threeWayTie(
+    //       goals_per_team,
+    //       sorted[0],
+    //       sorted[1],
+    //       sorted[2]
+    //     );
+    //     if (standings[curr].first_place == sorted[0]) {
+    //       standings[curr].second_place = twoWayTie(
+    //         goals_per_team,
+    //         sorted[1],
+    //         sorted[2]
+    //       );
+    //     } else if (standings[curr].first_place == sorted[1]) {
+    //       standings[curr].second_place = twoWayTie(
+    //         goals_per_team,
+    //         sorted[0],
+    //         sorted[2]
+    //       );
+    //     } else {
+    //       standings[curr].second_place = twoWayTie(
+    //         goals_per_team,
+    //         sorted[0],
+    //         sorted[1]
+    //       );
+    //     }
+    //   } else {
+    //     standings[curr].first_place = sorted[0];
+    //     standings[curr].second_place = threeWayTie(
+    //       goals_per_team,
+    //       sorted[1],
+    //       sorted[2],
+    //       sorted[3]
+    //     );
+    //   }
+  });
+  console.log(standings);
+}
+
+function twoWayTie(goals, team1, team2) {
+  team1_goals = goals[team1].for;
+  team2_goals = goals[team2].for;
+
+  team1_diff = team1_goals - goals[team1].against;
+  team2_diff = team2_goals - goals[team2].against;
+
+  if (team1_diff > team2_diff) {
+    return team1;
+  } else if (team2_diff > team1_diff) {
+    return team2;
+  }
+
+  if (team1_goals > team2_goals) {
+    return team1;
+  } else if (team2_goals > team1_goals) {
+    return team2;
+  }
+  return team1;
+}
+
+function threeWayTie(goals, team1, team2, team3) {
+  team1_goals = goals[team1].for;
+  team2_goals = goals[team2].for;
+  team3_goals = goals[team3].for;
+
+  team1_diff = team1_goals - goals[team1].against;
+  team2_diff = team2_goals - goals[team2].against;
+  team3_diff = team3_goals - goals[team3].against;
+
+  var diff = three(team1, team2, team3, team1_diff, team2_diff, team3_diff);
+  if (diff) return diff;
+
+  var goal = three(team1, team2, team3, team1_goals, team2_goals, team3_goals);
+  if (goal) return goal;
+
+  return team1;
+}
+
+function three(t1, t2, t3, v1, v2, v3) {
+  if (v1 > v2 && v1 > v3) {
+    return t1;
+  } else if (v2 > v1 && v2 > v3) {
+    return t2;
+  } else if (v3 > v1 && v3 > v2) {
+    return t3;
+  } else if (v1 > v2 && v1 === v3) {
+    return two_way_tie(goals, t1, t3);
+  } else if (v1 === v2 && v1 > v3) {
+    return two_way_tie(goals, t1, t2);
+  } else if (v3 === v2 && v3 > v1) {
+    return two_way_tie(goals, t2, t3);
+  }
+  return false;
 }
