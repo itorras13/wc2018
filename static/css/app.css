@@ -25,11 +25,21 @@ body {
   max-height: 500px;
 }
 
+.select {
+  flex: 1;
+  padding-left: 10px;
+  max-width: 200px;
+}
+
+.gameLabel {
+  min-width: 80px;
+}
+
 .gameRow {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-direction: row;
+  padding-top: 10px;
 }
 
 .buttons {

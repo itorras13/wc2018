@@ -1,4 +1,4 @@
-var currentTab = 1; // Current tab is set to be the first tab (0)
+var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
 
 var inputs = [
@@ -155,13 +155,10 @@ var groups = {
   h: groupH
 };
 
-var standings = { a: {}, b: {}, c: {}, d: {}, e: {}, f: {}, g: {}, h: {} };
-
 function showTab(n) {
-  // This function will display the specified tab of the form...
   var x = document.getElementsByClassName("tab");
   x[n].style.display = "block";
-  //... and fix the Previous/Next buttons:
+
   if (n == 0) {
     document.getElementById("prevBtn").style.display = "none";
   } else {
@@ -172,65 +169,66 @@ function showTab(n) {
   } else {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
-  //... and run a function that will display the correct step indicator:
+
   fixStepIndicator(n);
 }
 
 function nextPrev(n) {
-  // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  if (!validateForm()) return false;
-  // Hide the current tab:
+
+  if (n == 1 && !validateForm()) return false;
+
   x[currentTab].style.display = "none";
-  if (currentTab === 1) getGroupStandings();
-  // Increase or decrease the current tab by 1:
+  if (currentTab === 1 && n == 1) {
+    standings = getGroupStandings();
+    updateRound16(standings);
+  } else if (currentTab === 2 && n == 1) {
+    updateQuarters();
+  } else if (currentTab === 3 && n == 1) {
+    updateSemis();
+  } else if (currentTab === 4 && n == 1) {
+    updateFinals();
+  }
+
   currentTab = currentTab + n;
-  // if you have reached the end of the form...
   if (currentTab >= x.length) {
-    // ... the form gets submitted:
     document.getElementById("regForm").submit();
     return false;
   }
-  // Otherwise, display the correct tab:
+
   showTab(currentTab);
 }
 
 function validateForm() {
-  // This function deals with validation of the form fields
   var x,
     y,
     i,
     valid = true;
   x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
+  y = x[currentTab].querySelectorAll("input,select");
+
   for (i = 0; i < y.length; i++) {
-    // If a field is empty...
     if (y[i].value == "" || !y[i].checkValidity()) {
-      // add an "invalid" class to the field:
       y[i].className += " invalid";
-      // and set the current valid status to false
       valid = false;
     } else {
       y[i].className = y[i].className.replace("invalid", "");
     }
   }
-  // If the valid status is true, mark the step as finished and valid:
+
   if (valid) {
     document.getElementsByClassName("step")[currentTab].className += " finish";
   }
-  return valid; // return the valid status
+  return valid;
 }
 
 function fixStepIndicator(n) {
-  // This function removes the "active" class of all steps...
   var i,
     x = document.getElementsByClassName("step");
   for (i = 0; i < x.length; i++) {
     x[i].className = x[i].className.replace(" active", "");
   }
-  //... and adds the "active" class on the current step:
+
   x[n].className += " active";
 }
 
@@ -266,7 +264,9 @@ function getGroupStandings() {
       goals_per_team[team].for - goals_per_team[team].against;
   });
 
-  group_letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
+  var standings = {};
+  var group_letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
+
   group_letters.forEach(curr => {
     var currGroup = groups[curr];
 
@@ -278,8 +278,88 @@ function getGroupStandings() {
       );
     });
 
-    standings[curr].first_place = sorted[0];
-    standings[curr].second_place = sorted[1];
+    standings[curr + "1"] = sorted[0];
+    standings[curr + "2"] = sorted[1];
   });
+
+  console.log(standings);
   return standings;
+}
+
+function appendOptions(item, values) {
+  $(item)
+    .find("option")
+    .remove()
+    .end()
+    .append(
+      '<option disabled selected value style="display: none">Choose a Team</option>'
+    );
+  values.forEach(value => {
+    $(item).append(
+      $("<option></option>")
+        .attr("value", value)
+        .text(value)
+    );
+  });
+}
+
+function updateRound16(standings) {
+  appendOptions("#r1", [standings.a1, standings.b2]);
+  appendOptions("#r2", [standings.c1, standings.d2]);
+  appendOptions("#r3", [standings.e1, standings.f2]);
+  appendOptions("#r4", [standings.g1, standings.h2]);
+  appendOptions("#r5", [standings.b1, standings.a2]);
+  appendOptions("#r6", [standings.d1, standings.c2]);
+  appendOptions("#r7", [standings.f1, standings.e2]);
+  appendOptions("#r8", [standings.h1, standings.g2]);
+}
+
+function getSelected(id) {
+  return $(id)
+    .children("option")
+    .filter(":selected")
+    .text();
+}
+
+function notSelected(id) {
+  return $(id)
+    .children("option")
+    .filter(":not(:selected):not(:disabled)")
+    .text();
+}
+
+function updateQuarters() {
+  var r1 = getSelected("#r1");
+  var r2 = getSelected("#r2");
+  var r3 = getSelected("#r3");
+  var r4 = getSelected("#r4");
+  var r5 = getSelected("#r5");
+  var r6 = getSelected("#r6");
+  var r7 = getSelected("#r7");
+  var r8 = getSelected("#r8");
+
+  appendOptions("#q1", [r1, r2]);
+  appendOptions("#q2", [r3, r4]);
+  appendOptions("#q3", [r5, r6]);
+  appendOptions("#q4", [r7, r8]);
+}
+
+function updateSemis() {
+  var q1 = getSelected("#q1");
+  var q2 = getSelected("#q2");
+  var q3 = getSelected("#q3");
+  var q4 = getSelected("#q4");
+
+  appendOptions("#s1", [q1, q2]);
+  appendOptions("#s2", [q3, q4]);
+}
+
+function updateFinals() {
+  var s1 = getSelected("#s1");
+  var s2 = getSelected("#s2");
+  var t1 = notSelected("#s1");
+  var t2 = notSelected("#s2");
+
+  appendOptions("#final", [s1, s2]);
+  appendOptions("#third", [t1, t2]);
 }

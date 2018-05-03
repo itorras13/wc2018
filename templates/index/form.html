@@ -9,24 +9,20 @@
             <div class="tab">
                 {% include '/index/form/group.html' %}
             </div>
-            <div class="tab">Birthday:
-                <p>
-                    <input placeholder="dd" oninput="this.className = ''" name="dd">
-                </p>
-                <p>
-                    <input placeholder="mm" oninput="this.className = ''" name="nn">
-                </p>
-                <p>
-                    <input placeholder="yyyy" oninput="this.className = ''" name="yyyy">
-                </p>
+            <div class="tab">
+                {% include '/index/form/r16.html' %}
             </div>
-            <div class="tab">Login Info:
-                <p>
-                    <input placeholder="Username..." oninput="this.className = ''" name="uname">
-                </p>
-                <p>
-                    <input placeholder="Password..." oninput="this.className = ''" name="pword" type="password">
-                </p>
+            <div class="tab">
+                {% include '/index/form/quarters.html' %}
+            </div>
+            <div class="tab">
+                {% include '/index/form/semis.html' %}
+            </div>
+            <div class="tab">
+                {% include '/index/form/finals.html' %}
+            </div>
+            <div class="tab">
+                {% include '/index/form/random.html' %}
             </div>
         </form>
         <div style="overflow:auto;">
@@ -37,6 +33,9 @@
         </div>
         <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
             <span class="step"></span>
             <span class="step"></span>
             <span class="step"></span>
