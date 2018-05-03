@@ -21,12 +21,12 @@
             </li>
             <li class="list-group-item">
                 <i class="fa fa-trophy" aria-hidden="true"></i>
-                Payouts: 1st Place: 70%, 2nd Place: 20%, 3rd Place: 10%
+                Payouts: 1st Place: 65%, 2nd Place: 25%, 3rd Place: 10%
             </li>
             {% if submissions != [] %}
             <li class="list-group-item">
                 <i class="fa fa-money" aria-hidden="true"></i>
-                Current Payouts: 1st: ${{submissions|count * 50 * 0.70}} 2nd: ${{submissions|count * 50 * 0.20}} 3rd: ${{submissions|count
+                Current Payouts: 1st: ${{submissions|count * 50 * 0.65}} 2nd: ${{submissions|count * 50 * 0.25}} 3rd: ${{submissions|count
                 * 50 * 0.1}}
             </li>
             {% endif %}
