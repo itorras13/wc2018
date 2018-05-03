@@ -1,4 +1,4 @@
-var currentTab = 0; // Current tab is set to be the first tab (0)
+var currentTab = 2; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the crurrent tab
 
 var inputs = [
@@ -181,12 +181,13 @@ function nextPrev(n) {
   x[currentTab].style.display = "none";
   if (currentTab === 1 && n == 1) {
     standings = getGroupStandings();
+    updateGroupStandings(standings);
     updateRound16(standings);
-  } else if (currentTab === 2 && n == 1) {
-    updateQuarters();
   } else if (currentTab === 3 && n == 1) {
-    updateSemis();
+    updateQuarters();
   } else if (currentTab === 4 && n == 1) {
+    updateSemis();
+  } else if (currentTab === 5 && n == 1) {
     updateFinals();
   }
 
@@ -301,6 +302,37 @@ function appendOptions(item, values) {
         .text(value)
     );
   });
+}
+
+function appendOption(item, value) {
+  $("#" + item)
+    .find("option")
+    .remove();
+  $("#" + item).append(
+    $("<option></option>")
+      .attr("value", value)
+      .text(value)
+  );
+  $("input[name=" + item + "]").val(value);
+}
+
+function updateGroupStandings(standings) {
+  appendOption("a1", standings.a1);
+  appendOption("a2", standings.a2);
+  appendOption("b1", standings.b1);
+  appendOption("b2", standings.b2);
+  appendOption("c1", standings.c1);
+  appendOption("c2", standings.c2);
+  appendOption("d1", standings.d1);
+  appendOption("d2", standings.d2);
+  appendOption("e1", standings.e1);
+  appendOption("e2", standings.e2);
+  appendOption("f1", standings.f1);
+  appendOption("f2", standings.f2);
+  appendOption("g1", standings.g1);
+  appendOption("g2", standings.g2);
+  appendOption("h1", standings.h1);
+  appendOption("h2", standings.h2);
 }
 
 function updateRound16(standings) {

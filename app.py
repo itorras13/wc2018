@@ -2,7 +2,7 @@
 # import sys
 # print(current_stats, file=sys.stderr)
 from flask import Flask, request, render_template, redirect, url_for, flash
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 import os
 import psycopg2
 from datetime import datetime
@@ -17,29 +17,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
-# from models import Submission
-
-submissions = getSubmissions()
-subs = sorted(submissions, key=lambda d: d['points'], reverse=True)
-
-
-@app.route('/')
-def index():
-    return render_template('index.html', submissions=addPlace(subs))
-
-
-def addPlace(submissions):
-    index = 0
-    place = 0
-    prevValue = 9999
-    for submission in submissions:
-        index += 1
-        if submission['points'] != prevValue:
-            place = index
-        prevValue = submission['points']
-        submission['place'] = place
-    return submissions
-
+from models import Submission
 
 def getSubmissions():
     return [
@@ -124,6 +102,30 @@ def getSubmissions():
     ]
 
 
+submissions = getSubmissions()
+subs = sorted(submissions, key=lambda d: d['points'], reverse=True)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html', submissions=addPlace(subs))
+
+
+def addPlace(submissions):
+    index = 0
+    place = 0
+    prevValue = 9999
+    for submission in submissions:
+        index += 1
+        if submission['points'] != prevValue:
+            place = index
+        prevValue = submission['points']
+        submission['place'] = place
+    return submissions
+
+
+
+
 # @app.route('/stats')
 # def stats():
 # 	current_stats = create_stats()
@@ -142,6 +144,7 @@ def submit():
         success = submit_quiniela(request)
         if success:
             return render_template('index.html', submissions=addPlace(subs))
+
 
 # message = sendgrid.Mail()
 # email = str(request.form['email'])
@@ -250,12 +253,13 @@ def page_not_found(error):
 
 
 def submit_quiniela(request):
+    print(request)
     email = request.form['email']
-    if db.session.query(Submission).filter(
-            Submission.email == email).count() < 3:
+    subs = db.session.query(Submission).filter(Submission.email == email).count()
+    if subs < 3:
         new = Submission(
             request.form['first_name'], request.form['last_name'], email,
-            sub_num, request.form["a1h"], request.form["a1a"],
+            subs + 1, request.form["residence"], request.form["a1h"], request.form["a1a"],
             request.form["a2h"], request.form["a2a"], request.form["a3h"],
             request.form["a3a"], request.form["a4h"], request.form["a4a"],
             request.form["a5h"], request.form["a5a"], request.form["a6h"],
@@ -279,18 +283,29 @@ def submit_quiniela(request):
             request.form["f2h"], request.form["f2a"], request.form["f3h"],
             request.form["f3a"], request.form["f4h"], request.form["f4a"],
             request.form["f5h"], request.form["f5a"], request.form["f6h"],
-            request.form["f6a"], request.form["a1"], request.form["a2"],
+            request.form["g1h"], request.form["g1a"], request.form["g2h"], 
+            request.form["g2a"], request.form["g3h"], request.form["g3a"], 
+            request.form["g4h"], request.form["g4a"], request.form["g5h"], 
+            request.form["g5a"], request.form["g6h"], request.form["g6a"], 
+            request.form["h1h"], request.form["h1a"], request.form["h2h"], 
+            request.form["h2a"], request.form["h3h"], request.form["h3a"], 
+            request.form["h4h"], request.form["h4a"], request.form["h5h"], 
+            request.form["h5a"], request.form["h6h"], request.form["h6a"], 
+            request.form["a1"], request.form["a2"],
             request.form["b1"], request.form["b2"], request.form["c1"],
             request.form["c2"], request.form["d1"], request.form["d2"],
             request.form["e1"], request.form["e2"], request.form["f1"],
-            request.form["f2"], request.form["third1"], request.form["third2"],
-            request.form["third3"], request.form["third4"], request.form["q1"],
-            request.form["q2"], request.form["q3"], request.form["q4"],
-            request.form["q5"], request.form["q6"], request.form["q7"],
-            request.form["q8"], request.form["semi1"], request.form["semi2"],
-            request.form["semi3"], request.form["semi4"], request.form["fin1"],
-            request.form["fin2"], request.form["third_place"],
-            request.form["champion"], request.form["top_scorer"])
+            request.form["f2"], request.form["g1"], request.form["g2"],
+            request.form["h1"], request.form["h2"],
+            request.form["r1"], request.form["r2"],
+            request.form["r3"], request.form["r4"], 
+            request.form["r5"], request.form["r6"],
+            request.form["r7"], request.form["r8"], 
+            request.form["q1"],request.form["q2"], 
+            request.form["q3"], request.form["q4"],
+            request.form["s1"], request.form["s2"], 
+            request.form["third"], request.form["final"], 
+            request.form["golden_glove"], request.form["golden_boot"], request.form["golden_ball"])
         db.session.add(new)
         db.session.commit()
         return True
