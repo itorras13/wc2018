@@ -1,7 +1,6 @@
 from datetime import datetime
 from app import db
 
-
 class Submission(db.Model):
     #Person Info
 	id = db.Column(db.Integer, primary_key=True)
@@ -315,3 +314,7 @@ class Submission(db.Model):
 
 	def __repr__(self):
 		return '<Name %r>' % self.first_name
+
+
+db.create_all()
+db.session.commit()
