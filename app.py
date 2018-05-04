@@ -99,8 +99,13 @@ def get_submissions(type):
         for sub in submissions:
             new_sub = {}
             new_sub['email'] = sub.email
-            new_sub['name'] = sub.first_name + ' ' + sub.last_name
-            new_sub['sub_num'] = sub.submission_number
+            sub_num = sub.submission_number
+            if sub_num > 1:
+                new_sub['name'] = sub.first_name + ' ' + \
+                    sub.last_name + ' ' + str(sub_num)
+            else:
+                new_sub['name'] = sub.first_name + ' ' + sub.last_name
+            new_sub['sub_num'] = sub_num
             # new_sub['winner'] = sub.final
             new_sub['winner'] = '---'
             new_sub['points'] = sub.points
