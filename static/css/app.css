@@ -6,6 +6,14 @@ body {
   padding-top: 70px;
 }
 
+#rules,
+#points,
+#form,
+#payment,
+#standings {
+  padding-top: 40px;
+}
+
 .scrollableTable {
   overflow: hidden;
   overflow-y: scroll;
