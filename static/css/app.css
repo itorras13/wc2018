@@ -25,6 +25,24 @@ body {
   font-weight: bold;
 }
 
+.intro-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10px;
+  flex-direction: column;
+}
+
+.intro-text {
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.bg {
+  max-height: 400px;
+}
+
 /* Form */
 
 .form {
