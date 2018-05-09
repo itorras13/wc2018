@@ -18,18 +18,20 @@
             <li class="list-group-item">
                 <i class="fa fa-ban" aria-hidden="true"></i>
                 If you are unable pay by the deadline make sure to contact
-                <a href="mailto:itorras13@gmail.com" target="_top">Nacho</a> or
-                <a href="mailto:torrasjose@gmail.com" target="_top">Jose</a>. If not your submission will be deleted.
+                <a href="mailto:itorras13@gmail.com" target="_top">Nacho Torras</a>,
+                <a href="mailto:mailto:mruizdlt@gmail.com" target="_top">Mauricio Ruiz</a> or
+                <a href="mailto:torrasjose@gmail.com" target="_top">Jose Torras</a>. If not your submission will be deleted.
             </li>
             <li class="list-group-item">
                 <i class="fa fa-trophy" aria-hidden="true"></i>
-                Payouts: 1st Place: 65%, 2nd Place: 25%, 3rd Place: 10%
+                Payouts: 1st Place: 60%, 2nd Place: 25%, 3rd Place: 10%, 4th Place: 5% (Any and all fees incurred for payment transfers will
+                be deducted from the winnings)
             </li>
             {% if submissions != [] %}
             <li class="list-group-item">
                 <i class="fa fa-money" aria-hidden="true"></i>
-                Current Payouts: 1st: ${{submissions|count * 50 * 0.65}} 2nd: ${{submissions|count * 50 * 0.25}} 3rd: ${{submissions|count
-                * 50 * 0.1}}
+                Current Payouts: 1st: ${{submissions|count * 50 * 0.60}} 2nd: ${{submissions|count * 50 * 0.25}} 3rd: ${{submissions|count
+                * 50 * 0.1}} 4th: ${{submissions|count * 50 * 0.05}}
             </li>
             {% endif %}
         </ul>
