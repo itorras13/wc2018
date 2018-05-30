@@ -90,8 +90,8 @@ def get_last_submission(email):
 
 
 def get_submissions(type):
-    submissions = Submission.query.order_by(Submission.points.desc(),
-                                            Submission.first_name.asc()).all()
+    submissions = Submission.query.order_by(
+        Submission.publish_date.desc()).all()
     if type == "show":
         return submissions
     else:
