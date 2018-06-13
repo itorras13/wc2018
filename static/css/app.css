@@ -43,6 +43,13 @@ body {
   max-height: 400px;
 }
 
+.sponsors {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* Form */
 
 .form {
