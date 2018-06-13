@@ -43,10 +43,10 @@ def index():
 
 
 # @app.route('/show', defaults={'email': None})
-# @app.route('/show/<id>')
-# def show(id):
-# 	sub = Submission.query.filter_by(id=id).all()
-# 	return render_template('show.html', sub=sub[0])
+@app.route('/show/<id>')
+def show(id):
+    sub = Submission.query.filter_by(id=id).first()
+    return render_template('show.html', sub=sub)
 
 
 @app.route('/submit', methods=['GET', 'POST'])

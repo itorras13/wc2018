@@ -18,7 +18,9 @@
                     {% for submission in submissions %}
                     <tr>
                         <td>{{submission['place']}}</td>
-                        <td>{{submission['name']}}</td>
+                        <td>
+                            <a href="{{ '/show/'+submission[ 'id']|string}}">{{submission['name']}}</a>
+                        </td>
                         <td>{{submission['winner']}}</td>
                         <td>{{submission['points']}}</td>
                         {% if submission['paid'] %}
