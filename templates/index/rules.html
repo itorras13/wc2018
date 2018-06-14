@@ -30,8 +30,8 @@
             {% if submissions != [] %}
             <li class="list-group-item">
                 <i class="fa fa-money" aria-hidden="true"></i>
-                Current Payouts: 1st: ${{submissions|count * 50 * 0.60}} 2nd: ${{submissions|count * 50 * 0.25}} 3rd: ${{submissions|count
-                * 50 * 0.1}} 4th: ${{submissions|count * 50 * 0.05}}
+                Current Payouts: 1st: ${{'{:,}'.format(pot * 0.60)}} 2nd: ${{'{:,}'.format(pot * 0.25)}} 3rd: ${{'{:,}'.format(pot * 0.1)}}
+                4th: ${{'{:,}'.format(pot * 0.05)}}
             </li>
             {% endif %}
         </ul>

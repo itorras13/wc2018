@@ -40,7 +40,7 @@ def addPlace(submissions):
 @app.route('/')
 def index():
     submissions = get_submissions("index")
-    return render_template('index.html', submissions=addPlace(submissions))
+    return render_template('index.html', submissions=addPlace(submissions), pot = len(submissions) * 50 - 100)
 
 
 # @app.route('/show', defaults={'email': None})
