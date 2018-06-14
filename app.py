@@ -69,7 +69,7 @@ def page_not_found(error):
 
 def get_submissions(type):
     submissions = Submission.query.order_by(
-        Submission.first_name.asc(),Submission.last_name.asc(),Submission.submission_number.asc()).all()
+        Submission.points.desc(),Submission.first_name.asc(),Submission.last_name.asc(),Submission.submission_number.asc()).all()
     if type == "show":
         return submissions
     else:
