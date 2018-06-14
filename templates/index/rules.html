@@ -1,39 +1,22 @@
-<div class="container" id="rules">
+<div class="container" id="payouts">
 
     <div class="jumbotron">
-        <h1>Rules</h1>
+        <h1>Payouts</h1>
         <ul class="list-group">
             <li class="list-group-item">
-                <i class="fa fa-usd" aria-hidden="true"></i>
-                Entry Price: $50 USD per Bracket/Quiniela
-            </li>
-            <li class="list-group-item">
-                <i class="fa fa-list-ol" aria-hidden="true"></i>
-                Maximum: 3 brackets/quinielas
-            </li>
-            <li class="list-group-item">
-                <i class="fa fa-calendar" aria-hidden="true"></i>
-                <b>June 12th</b> is the last day to submit and pay for your bracket
-            </li>
-            <li class="list-group-item">
-                <i class="fa fa-ban" aria-hidden="true"></i>
-                If you are unable pay by the deadline make sure to contact
-                <a href="mailto:itorras13@gmail.com" target="_top">Nacho Torras</a>,
-                <a href="mailto:mailto:mruizdlt@gmail.com" target="_top">Mauricio Ruiz</a> or
-                <a href="mailto:torrasjose@gmail.com" target="_top">Jose Torras</a>. If not your submission will be deleted.
+                <i class="fa fa-money" aria-hidden="true"></i>
+                Pot Size: ${{'{:,}'.format(pot) }} ($100 has been deducted to cover costs and fees)
             </li>
             <li class="list-group-item">
                 <i class="fa fa-trophy" aria-hidden="true"></i>
                 Payouts: 1st Place: 60%, 2nd Place: 25%, 3rd Place: 10%, 4th Place: 5% (Any and all fees incurred for payment transfers will
                 be deducted from the winnings)
             </li>
-            {% if submissions != [] %}
             <li class="list-group-item">
                 <i class="fa fa-money" aria-hidden="true"></i>
                 Current Payouts: 1st: ${{'{:,}'.format(pot * 0.60)}} 2nd: ${{'{:,}'.format(pot * 0.25)}} 3rd: ${{'{:,}'.format(pot * 0.1)}}
                 4th: ${{'{:,}'.format(pot * 0.05)}}
             </li>
-            {% endif %}
         </ul>
     </div>
 
