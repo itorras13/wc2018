@@ -110,13 +110,14 @@
                 <tr>
                     <th>A1</th>
                     <td>Russia</td>
-                    {%set color='#ffffff' %} {#% if sub.a1h==2 and sub.a1a==1 %} {% set color='#00cc00' %} {% elif sub.a1h>sub.a1a %} {% set
-                    color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %#}
+                    {set color='#ffffff' %} {% if sub.a1h==5 and sub.a1a==0 %} {% set color='#00cc00' %} {% elif sub.a1h>sub.a1a %} {% set
+                    color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.a1h }}</td>
                     <td bgcolor={{color}}>{{ sub.a1a }}</td>
                     <td>Saudi Arabia</td>
                     <th>A2</th>
                     <td>Egypt</td>
+                     {set color='#ffffff' %}
                     {#% if sub.a2h==0 and sub.a2a==1 %} {% set color='#00cc00' %} {% elif sub.a2h
                     < sub.a2a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.a2h }}</td>
                         <td bgcolor={{color}}>{{ sub.a2a }}</td>
