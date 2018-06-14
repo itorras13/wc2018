@@ -8,6 +8,7 @@ import operator
 from sendgrid.helpers.mail import *
 from sendgrid import *
 import ssl
+import math
 
 
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -46,7 +47,15 @@ def index():
 @app.route('/show/<id>')
 def show(id):
     sub = Submission.query.filter_by(id=id).first()
-    return render_template('show.html', sub=sub)
+    submissions = get_submissions("index")
+    placedSubs = addPlace(submissions)
+    for placedSub in placedSubs:
+        if placedSub['id'] == sub.id:
+            place = placedSub['place']
+            ordinal = lambda n: "%d%s" % (n,"tsnrhtdd"[(math.floor(n/10)%10!=1)*(n%10<4)*n%10::4])
+
+            return render_template('show.html', sub=sub, place = ordinal(place))
+    return render_template('show.html', sub=sub, place = " ")
 
 
 

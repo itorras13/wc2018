@@ -83,6 +83,10 @@
     </div>
     <div id="tableDiv">
         <h3>Submission {{ sub.submission_number }} Points: {{ sub.points }}</h3>
+        {% if place != " " %}
+        <h3>Place: {{ place }} </h3>
+
+        {% endif %}
         <span style="background-color:#00cc00">Green means score was predicted correctly (3 points)</span>
         <span style="background-color:#ffff66">Yellow means winner or tie was predicted correctly (2 point)</span>
         <span style="background-color:#ff4d4d">Red means winner or tie was predicted wrong (0 points)</span>
