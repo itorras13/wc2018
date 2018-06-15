@@ -173,8 +173,8 @@
                     <th>B2</th>
                     <td>Portugal</td>
                     {% set color='#ffffff' %}
-                    {#% if sub.b2h==0 and sub.b2a==1 %} {% set color='#00cc00' %} {% elif sub.b2h
-                    < sub.b2a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.b2h }}</td>
+                    {% if sub.b2h==3 and sub.b2a==3 %} {% set color='#00cc00' %} {% elif sub.b2h
+                    == sub.b2a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %} <td bgcolor={{color}}>{{ sub.b2h }}</td>
                         <td bgcolor={{color}}>{{ sub.b2a }}</td>
                         <td>Spain</td>
                 </tr>
