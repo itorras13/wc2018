@@ -267,8 +267,8 @@
                 <tr>
                     <th>D1</th>
                     <td>Argentina</td>
-                    {%set color='#ffffff' %} {#% if sub.d1h==2 and sub.d1a==1 %} {% set color='#00cc00' %} {% elif sub.d1h>sub.d1a %} {% set
-                    color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %#}
+                    {%set color='#ffffff' %} {% if sub.d1h==1 and sub.d1a==1 %} {% set color='#00cc00' %} {% elif sub.d1h==sub.d1a %} {% set
+                    color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.d1h }}</td>
                     <td bgcolor={{color}}>{{ sub.d1a }}</td>
                     <td>Iceland</td>
