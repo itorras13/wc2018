@@ -216,13 +216,14 @@
                 <tr>
                     <th>C1</th>
                     <td>France</td>
-                    {%set color='#ffffff' %} {#% if sub.c1h==2 and sub.c1a==1 %} {% set color='#00cc00' %} {% elif sub.c1h>sub.c1a %} {% set
-                    color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %#}
+                    {%set color='#ffffff' %} {% if sub.c1h==2 and sub.c1a==1 %} {% set color='#00cc00' %} {% elif sub.c1h>sub.c1a %} {% set
+                    color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.c1h }}</td>
                     <td bgcolor={{color}}>{{ sub.c1a }}</td>
                     <td>Australia</td>
                     <th>C2</th>
                     <td>Peru</td>
+                    {%set color='#ffffff' %} 
                     {#% if sub.c2h==0 and sub.c2a==1 %} {% set color='#00cc00' %} {% elif sub.c2h
                     < sub.c2a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.c2h }}</td>
                         <td bgcolor={{color}}>{{ sub.c2a }}</td>
@@ -231,6 +232,7 @@
                 <tr>
                     <th>C3</th>
                     <td>Denmark</td>
+                    {%set color='#ffffff' %} 
                     {#% if sub.c3h==1 and sub.c3a==1 %} {% set color='#00cc00' %} {% elif sub.c3h == sub.c3a %} {% set color='#ffff66' %} {%
                     else %} {% set color='#ff4d4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.c3h }}</td>
@@ -272,6 +274,7 @@
                     <td>Iceland</td>
                     <th>D2</th>
                     <td>Croatia</td>
+                    {%set color='#ffffff' %} 
                     {#% if sub.d2h==0 and sub.d2a==1 %} {% set color='#00cc00' %} {% elif sub.d2h
                     < sub.d2a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.d2h }}</td>
                         <td bgcolor={{color}}>{{ sub.d2a }}</td>
