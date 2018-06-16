@@ -275,14 +275,15 @@
                     <th>D2</th>
                     <td>Croatia</td>
                     {%set color='#ffffff' %} 
-                    {#% if sub.d2h==0 and sub.d2a==1 %} {% set color='#00cc00' %} {% elif sub.d2h
-                    < sub.d2a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.d2h }}</td>
+                    {% if sub.d2h==2 and sub.d2a==0 %} {% set color='#00cc00' %} {% elif sub.d2h
+                    > sub.d2a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %} <td bgcolor={{color}}>{{ sub.d2h }}</td>
                         <td bgcolor={{color}}>{{ sub.d2a }}</td>
                         <td>Nigeria</td>
                 </tr>
                 <tr>
                     <th>D3</th>
                     <td>Argentina</td>
+                    {%set color='#ffffff' %}
                     {#% if sub.d3h==1 and sub.d3a==1 %} {% set color='#00cc00' %} {% elif sub.d3h == sub.d3a %} {% set color='#ffff66' %} {%
                     else %} {% set color='#ff4d4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.d3h }}</td>
