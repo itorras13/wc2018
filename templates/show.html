@@ -368,8 +368,8 @@
                 <tr>
                     <th>F1</th>
                     <td>Germany</td>
-                    {%set color='#ffffff' %} {#% if sub.f1h==2 and sub.f1a==1 %} {% set color='#00cc00' %} {% elif sub.f1h>sub.f1a %} {% set
-                    color='#ffff66' %} {% else %} {% set color='#ff4e4d' %} {% endif %#}
+                    {%set color='#ffffff' %} {% if sub.f1h==0 and sub.f1a==1 %} {% set color='#00cc00' %} {% elif sub.f1h<sub.f1a %} {% set
+                    color='#ffff66' %} {% else %} {% set color='#ff4e4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.f1h }}</td>
                     <td bgcolor={{color}}>{{ sub.f1a }}</td>
                     <td>Mexico</td>
