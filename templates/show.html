@@ -433,8 +433,8 @@
                     <th>G2</th>
                     <td>Tunisia</td>
                       {%set color='#ffffff' %}
-                    {#% if sub.g2h==0 and sub.g2a==1 %} {% set color='#00cc00' %} {% elif sub.g2h
-                    < sub.g2a %} {% set color='#fffg66' %} {% else %} {% set color='#ff4e4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.g2h }}</td>
+                    {% if sub.g2h==1 and sub.g2a==2 %} {% set color='#00cc00' %} {% elif sub.g2h
+                    < sub.g2a %} {% set color='#fffg66' %} {% else %} {% set color='#ff4e4d' %} {% endif %} <td bgcolor={{color}}>{{ sub.g2h }}</td>
                         <td bgcolor={{color}}>{{ sub.g2a }}</td>
                         <td>England</td>
                 </tr>
