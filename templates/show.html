@@ -378,14 +378,16 @@
                     <th>F2</th>
                     <td>Sweden</td>
                     {%set color='#ffffff' %}
-                    {#% if sub.f2h==0 and sub.f2a==1 %} {% set color='#00cc00' %} {% elif sub.f2h
-                    < sub.f2a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4e4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.f2h }}</td>
+                    {% if sub.f2h==1 and sub.f2a==0 %} {% set color='#00cc00' %} {% elif sub.f2h
+
+                    > sub.f2a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4e4d' %} {% endif %} <td bgcolor={{color}}>{{ sub.f2h }}</td>
                         <td bgcolor={{color}}>{{ sub.f2a }}</td>
                         <td>South Korea</td>
                 </tr>
                 <tr>
                     <th>F3</th>
                     <td>South Korea</td>
+                      {%set color='#ffffff' %}
                     {#% if sub.f3h==1 and sub.f3a==1 %} {% set color='#00cc00' %} {% elif sub.f3h == sub.f3a %} {% set color='#ffff66' %} {%
                     else %} {% set color='#ff4e4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.f3h }}</td>
@@ -393,6 +395,7 @@
                     <td>Mexico</td>
                     <th>F4</th>
                     <td>Germany</td>
+                      {%set color='#ffffff' %}
                     {#% if sub.f4h==2 and sub.f4a==0 %} {% set color='#00cc00' %} {% elif sub.f4h > sub.f4a %} {% set color='#ffff66' %} {% else
                     %} {% set color='#ff4e4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.f4h }}</td>
@@ -402,6 +405,7 @@
                 <tr>
                     <th>F5</th>
                     <td>Mexico</td>
+                      {%set color='#ffffff' %}
                     {#% if sub.f5h==0 and sub.f5a==0 %} {% set color='#00cc00' %} {% elif sub.f5h == sub.f5a %} {% set color='#ffff66' %} {%
                     else %} {% set color='#ff4e4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.f5h }}</td>
@@ -409,6 +413,7 @@
                     <td>Sweden</td>
                     <th>F6</th>
                     <td>South Korea</td>
+                      {%set color='#ffffff' %}
                     {#% if sub.f6h==0 and sub.f6a==1 %} {% set color='#00cc00' %} {% elif sub.f6h
                     < sub.f6a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4e4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.f6h }}</td>
                         <td bgcolor={{color}}>{{ sub.f6a }}</td>
@@ -427,6 +432,7 @@
                     <td>Panama</td>
                     <th>G2</th>
                     <td>Tunisia</td>
+                      {%set color='#ffffff' %}
                     {#% if sub.g2h==0 and sub.g2a==1 %} {% set color='#00cc00' %} {% elif sub.g2h
                     < sub.g2a %} {% set color='#fffg66' %} {% else %} {% set color='#ff4e4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.g2h }}</td>
                         <td bgcolor={{color}}>{{ sub.g2a }}</td>
@@ -435,6 +441,7 @@
                 <tr>
                     <th>G3</th>
                     <td>Belgium</td>
+                      {%set color='#ffffff' %}
                     {#% if sub.g3h==1 and sub.g3a==1 %} {% set color='#00cc00' %} {% elif sub.g3h == sub.g3a %} {% set color='#fffg66' %} {%
                     else %} {% set color='#ff4e4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.g3h }}</td>
@@ -476,6 +483,7 @@
                     <td>Japan</td>
                     <th>H2</th>
                     <td>Poland</td>
+                      {%set color='#ffffff' %}
                     {#% if sub.h2h==0 and sub.h2a==1 %} {% set color='#00cc00' %} {% elif sub.h2h
                     < sub.h2a %} {% set color='#fffg66' %} {% else %} {% set color='#ff4e4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.h2h }}</td>
                         <td bgcolor={{color}}>{{ sub.h2a }}</td>
@@ -484,6 +492,7 @@
                 <tr>
                     <th>H3</th>
                     <td>Japan</td>
+                      {%set color='#ffffff' %}
                     {#% if sub.h3h==1 and sub.h3a==1 %} {% set color='#00cc00' %} {% elif sub.h3h == sub.h3a %} {% set color='#fffg66' %} {%
                     else %} {% set color='#ff4e4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.h3h }}</td>
