@@ -2,6 +2,9 @@
 
     <div class="jumbotron">
         <h1>Standings</h1>
+        <div class="form-group">
+            <input type="text" class="form-control" id="standingsName" name="standings_name" placeholder="Search by name" oninput="filterNames()">
+        </div>
         <div class="scrollableTable">
             {% if submissions != [] %}
             <table class="table table-striped">
@@ -14,12 +17,12 @@
                         <th>Paid</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="standingsBody">
                     {% for submission in submissions %}
                     <tr>
                         <td>{{submission['place']}}</td>
-                        <td>
-                            <a href="{{ '/show/'+submission[ 'id']|string}}">{{submission['name']}}</a>
+                        <td id="{{submission['name']}}">
+                            <a href="{{ '/show/'+submission['id']|string}}">{{submission['name']}}</a>
                         </td>
                         <td>{{submission['winner']}}</td>
                         <td>{{submission['points']}}</td>
