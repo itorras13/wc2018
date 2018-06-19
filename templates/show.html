@@ -476,8 +476,8 @@
                 <tr>
                     <th>H1</th>
                     <td>Colombia</td>
-                    {%set color='#ffffff' %} {#% if sub.h1h==2 and sub.h1a==1 %} {% set color='#00cc00' %} {% elif sub.h1h>sub.h1a %} {% set
-                    color='#fffg66' %} {% else %} {% set color='#ff4e4d' %} {% endif %#}
+                    {%set color='#ffffff' %} {% if sub.h1h==1 and sub.h1a==2 %} {% set color='#00cc00' %} {% elif sub.h1h<sub.h1a %} {% set
+                    color='#fffg66' %} {% else %} {% set color='#ff4e4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.h1h }}</td>
                     <td bgcolor={{color}}>{{ sub.h1a }}</td>
                     <td>Japan</td>
