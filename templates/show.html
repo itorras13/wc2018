@@ -484,8 +484,8 @@
                     <th>H2</th>
                     <td>Poland</td>
                       {%set color='#ffffff' %}
-                    {#% if sub.h2h==0 and sub.h2a==1 %} {% set color='#00cc00' %} {% elif sub.h2h
-                    < sub.h2a %} {% set color='#fffg66' %} {% else %} {% set color='#ff4e4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.h2h }}</td>
+                    {% if sub.h2h==1 and sub.h2a==2 %} {% set color='#00cc00' %} {% elif sub.h2h
+                    < sub.h2a %} {% set color='#fffg66' %} {% else %} {% set color='#ff4e4d' %} {% endif %} <td bgcolor={{color}}>{{ sub.h2h }}</td>
                         <td bgcolor={{color}}>{{ sub.h2a }}</td>
                         <td>Senegal</td>
                 </tr>
