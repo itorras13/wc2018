@@ -135,8 +135,8 @@
                     <th>A4</th>
                     <td>Uruguay</td>
                     {% set color='#ffffff' %}
-                    {#% if sub.a4h==2 and sub.a4a==0 %} {% set color='#00cc00' %} {% elif sub.a4h > sub.a4a %} {% set color='#ffff66' %} {% else
-                    %} {% set color='#ff4d4d' %} {% endif %#}
+                    {% if sub.a4h==1 and sub.a4a==0 %} {% set color='#00cc00' %} {% elif sub.a4h > sub.a4a %} {% set color='#ffff66' %} {% else
+                    %} {% set color='#ff4d4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.a4h }}</td>
                     <td bgcolor={{color}}>{{ sub.a4a }}</td>
                     <td>Saudi Arabia</td>
