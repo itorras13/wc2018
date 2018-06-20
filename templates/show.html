@@ -182,13 +182,14 @@
                     <th>B3</th>
                     <td>Portugal</td>
                     {% set color='#ffffff' %}
-                    {#% if sub.b3h==1 and sub.b3a==1 %} {% set color='#00cc00' %} {% elif sub.b3h == sub.b3a %} {% set color='#ffff66' %} {%
-                    else %} {% set color='#ff4d4d' %} {% endif %#}
+                    {% if sub.b3h==1 and sub.b3a==0 %} {% set color='#00cc00' %} {% elif sub.b3h > sub.b3a %} {% set color='#ffff66' %} {%
+                    else %} {% set color='#ff4d4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.b3h }}</td>
                     <td bgcolor={{color}}>{{ sub.b3a }}</td>
                     <td>Morocco</td>
                     <th>B4</th>
                     <td>Iran</td>
+                     {% set color='#ffffff' %}
                     {#% if sub.b4h==2 and sub.b4a==0 %} {% set color='#00cc00' %} {% elif sub.b4h > sub.b4a %} {% set color='#ffff66' %} {% else
                     %} {% set color='#ff4d4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.b4h }}</td>
@@ -198,6 +199,7 @@
                 <tr>
                     <th>B5</th>
                     <td>Spain</td>
+                     {% set color='#ffffff' %}
                     {#% if sub.b5h==0 and sub.b5a==0 %} {% set color='#00cc00' %} {% elif sub.b5h == sub.b5a %} {% set color='#ffff66' %} {%
                     else %} {% set color='#ff4d4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.b5h }}</td>
@@ -249,6 +251,7 @@
                 <tr>
                     <th>C5</th>
                     <td>Denmark</td>
+                     {% set color='#ffffff' %}
                     {#% if sub.c5h==0 and sub.c5a==0 %} {% set color='#00cc00' %} {% elif sub.c5h == sub.c5a %} {% set color='#ffff66' %} {%
                     else %} {% set color='#ff4d4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.c5h }}</td>
@@ -300,6 +303,7 @@
                 <tr>
                     <th>D5</th>
                     <td>Iceland</td>
+                     {% set color='#ffffff' %}
                     {#% if sub.d5h==0 and sub.d5a==0 %} {% set color='#00cc00' %} {% elif sub.d5h == sub.d5a %} {% set color='#ffff66' %} {%
                     else %} {% set color='#ff4d4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.d5h }}</td>
@@ -352,6 +356,7 @@
                 <tr>
                     <th>E5</th>
                     <td>Serbia</td>
+                     {% set color='#ffffff' %}
                     {#% if sub.e5h==0 and sub.e5a==0 %} {% set color='#00cc00' %} {% elif sub.e5h == sub.e5a %} {% set color='#ffff66' %} {%
                     else %} {% set color='#ff4e4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.e5h }}</td>
@@ -370,6 +375,7 @@
                 <tr>
                     <th>F1</th>
                     <td>Germany</td>
+                
                     {%set color='#ffffff' %} {% if sub.f1h==0 and sub.f1a==1 %} {% set color='#00cc00' %} {% elif sub.f1h<sub.f1a %} {% set
                     color='#ffff66' %} {% else %} {% set color='#ff4e4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.f1h }}</td>
@@ -458,6 +464,7 @@
                 <tr>
                     <th>G5</th>
                     <td>England</td>
+                     {% set color='#ffffff' %}
                     {#% if sub.g5h==0 and sub.g5a==0 %} {% set color='#00cc00' %} {% elif sub.g5h == sub.g5a %} {% set color='#fffg66' %} {%
                     else %} {% set color='#ff4e4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.g5h }}</td>
@@ -509,6 +516,7 @@
                 <tr>
                     <th>H5</th>
                     <td>Japan</td>
+                     {% set color='#ffffff' %}
                     {#% if sub.h5h==0 and sub.h5a==0 %} {% set color='#00cc00' %} {% elif sub.h5h == sub.h5a %} {% set color='#fffg66' %} {%
                     else %} {% set color='#ff4e4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.h5h }}</td>
