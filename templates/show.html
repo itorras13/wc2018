@@ -235,13 +235,14 @@
                     <th>C3</th>
                     <td>Denmark</td>
                     {%set color='#ffffff' %} 
-                    {#% if sub.c3h==1 and sub.c3a==1 %} {% set color='#00cc00' %} {% elif sub.c3h == sub.c3a %} {% set color='#ffff66' %} {%
-                    else %} {% set color='#ff4d4d' %} {% endif %#}
+                    {% if sub.c3h==1 and sub.c3a==1 %} {% set color='#00cc00' %} {% elif sub.c3h == sub.c3a %} {% set color='#ffff66' %} {%
+                    else %} {% set color='#ff4d4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.c3h }}</td>
                     <td bgcolor={{color}}>{{ sub.c3a }}</td>
                     <td>Australia</td>
                     <th>C4</th>
                     <td>France</td>
+                     {%set color='#ffffff' %} 
                     {#% if sub.c4h==2 and sub.c4a==0 %} {% set color='#00cc00' %} {% elif sub.c4h > sub.c4a %} {% set color='#ffff66' %} {% else
                     %} {% set color='#ff4d4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.c4h }}</td>
