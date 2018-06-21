@@ -243,8 +243,8 @@
                     <th>C4</th>
                     <td>France</td>
                      {%set color='#ffffff' %} 
-                    {#% if sub.c4h==2 and sub.c4a==0 %} {% set color='#00cc00' %} {% elif sub.c4h > sub.c4a %} {% set color='#ffff66' %} {% else
-                    %} {% set color='#ff4d4d' %} {% endif %#}
+                    {% if sub.c4h==1 and sub.c4a==0 %} {% set color='#00cc00' %} {% elif sub.c4h > sub.c4a %} {% set color='#ffff66' %} {% else
+                    %} {% set color='#ff4d4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.c4h }}</td>
                     <td bgcolor={{color}}>{{ sub.c4a }}</td>
                     <td>Peru</td>
