@@ -341,8 +341,8 @@
                     <th>E3</th>
                     <td>Brazil</td>
                       {%set color='#ffffff' %}
-                    {#% if sub.e3h==1 and sub.e3a==1 %} {% set color='#00cc00' %} {% elif sub.e3h == sub.e3a %} {% set color='#ffff66' %} {%
-                    else %} {% set color='#ff4e4d' %} {% endif %#}
+                    {% if sub.e3h==2 and sub.e3a==0 %} {% set color='#00cc00' %} {% elif sub.e3h > sub.e3a %} {% set color='#ffff66' %} {%
+                    else %} {% set color='#ff4e4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.e3h }}</td>
                     <td bgcolor={{color}}>{{ sub.e3a }}</td>
                     <td>Costa Rica</td>
