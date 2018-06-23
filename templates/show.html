@@ -396,8 +396,8 @@
                     <th>F3</th>
                     <td>South Korea</td>
                       {%set color='#ffffff' %}
-                    {#% if sub.f3h==1 and sub.f3a==1 %} {% set color='#00cc00' %} {% elif sub.f3h == sub.f3a %} {% set color='#ffff66' %} {%
-                    else %} {% set color='#ff4e4d' %} {% endif %#}
+                    {% if sub.f3h==1 and sub.f3a==2 %} {% set color='#00cc00' %} {% elif sub.f3h < sub.f3a %} {% set color='#ffff66' %} {%
+                    else %} {% set color='#ff4e4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.f3h }}</td>
                     <td bgcolor={{color}}>{{ sub.f3a }}</td>
                     <td>Mexico</td>
