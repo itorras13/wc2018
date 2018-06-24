@@ -458,8 +458,8 @@
                     <th>G4</th>
                     <td>England</td>
                     {%set color='#ffffff' %}
-                    {#% if sub.g4h==2 and sub.g4a==0 %} {% set color='#00cc00' %} {% elif sub.g4h > sub.g4a %} {% set color='#fffg66' %} {% else
-                    %} {% set color='#ff4e4d' %} {% endif %#}
+                    {% if sub.g4h==6 and sub.g4a==1 %} {% set color='#00cc00' %} {% elif sub.g4h > sub.g4a %} {% set color='#fffg66' %} {% else
+                    %} {% set color='#ff4e4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.g4h }}</td>
                     <td bgcolor={{color}}>{{ sub.g4a }}</td>
                     <td>Panama</td>
