@@ -503,13 +503,14 @@
                     <th>H3</th>
                     <td>Japan</td>
                       {%set color='#ffffff' %}
-                    {#% if sub.h3h==1 and sub.h3a==1 %} {% set color='#00cc00' %} {% elif sub.h3h == sub.h3a %} {% set color='#fffg66' %} {%
-                    else %} {% set color='#ff4e4d' %} {% endif %#}
+                    {% if sub.h3h==2 and sub.h3a==2 %} {% set color='#00cc00' %} {% elif sub.h3h == sub.h3a %} {% set color='#fffg66' %} {%
+                    else %} {% set color='#ff4e4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.h3h }}</td>
                     <td bgcolor={{color}}>{{ sub.h3a }}</td>
                     <td>Senegal</td>
                     <th>H4</th>
                     <td>Poland</td>
+                    {% set color='#ffffff' %}
                     {#% if sub.h4h==2 and sub.h4a==0 %} {% set color='#00cc00' %} {% elif sub.h4h > sub.h4a %} {% set color='#fffg66' %} {% else
                     %} {% set color='#ff4e4d' %} {% endif %#}
                     <td bgcolor={{color}}>{{ sub.h4h }}</td>
