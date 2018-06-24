@@ -511,8 +511,8 @@
                     <th>H4</th>
                     <td>Poland</td>
                     {% set color='#ffffff' %}
-                    {#% if sub.h4h==2 and sub.h4a==0 %} {% set color='#00cc00' %} {% elif sub.h4h > sub.h4a %} {% set color='#fffg66' %} {% else
-                    %} {% set color='#ff4e4d' %} {% endif %#}
+                    {% if sub.h4h==0 and sub.h4a==3 %} {% set color='#00cc00' %} {% elif sub.h4h < sub.h4a %} {% set color='#fffg66' %} {% else
+                    %} {% set color='#ff4e4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.h4h }}</td>
                     <td bgcolor={{color}}>{{ sub.h4a }}</td>
                     <td>Colombia</td>
