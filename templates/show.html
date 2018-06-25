@@ -190,17 +190,18 @@
                 <tr>
                     <th>B5</th>
                     <td>Spain</td>
-                    {% set color='#ffffff' %} {#% if sub.b5h==0 and sub.b5a==0 %} {% set color='#00cc00' %} {% elif sub.b5h == sub.b5a %} {%
-                    set color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %#}
+                    {% set color='#ffffff' %} {% if sub.b5h==2 and sub.b5a==2 %} {% set color='#00cc00' %} {% elif sub.b5h == sub.b5a %} {% set
+                    color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %}
                     <td bgcolor={{color}}>{{ sub.b5h }}</td>
                     <td bgcolor={{color}}>{{ sub.b5a }}</td>
                     <td>Morocco</td>
                     <th>B6</th>
                     <td>Iran</td>
-                    {#% if sub.b6h==0 and sub.b6a==1 %} {% set color='#00cc00' %} {% elif sub.b6h
-                    < sub.b6a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.b6h }}</td>
-                        <td bgcolor={{color}}>{{ sub.b6a }}</td>
-                        <td>Portgual</td>
+                    {% if sub.b6h==1 and sub.b6a==1 %} {% set color='#00cc00' %} {% elif sub.b6h == sub.b6a %} {% set color='#ffff66' %} {% else
+                    %} {% set color='#ff4d4d' %} {% endif %}
+                    <td bgcolor={{color}}>{{ sub.b6h }}</td>
+                    <td bgcolor={{color}}>{{ sub.b6a }}</td>
+                    <td>Portgual</td>
                 </tr>
                 <tr>
                     <th colspan="10">Group C</th>
