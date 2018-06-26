@@ -289,17 +289,17 @@
                 <tr>
                     <th>D5</th>
                     <td>Iceland</td>
-                    {% set color='#ffffff' %} {#% if sub.d5h==0 and sub.d5a==0 %} {% set color='#00cc00' %} {% elif sub.d5h == sub.d5a %} {%
-                    set color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %#}
-                    <td bgcolor={{color}}>{{ sub.d5h }}</td>
-                    <td bgcolor={{color}}>{{ sub.d5a }}</td>
-                    <td>Croatia</td>
-                    <th>D6</th>
-                    <td>Nigeria</td>
-                    {#% if sub.d6h==0 and sub.d6a==1 %} {% set color='#00cc00' %} {% elif sub.d6h
-                    < sub.d6a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.d6h }}</td>
-                        <td bgcolor={{color}}>{{ sub.d6a }}</td>
-                        <td>Argentina</td>
+                    {% set color='#ffffff' %} {% if sub.d5h==1 and sub.d5a==2 %} {% set color='#00cc00' %} {% elif sub.d5h
+                    <
+                        sub.d5a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %} <td bgcolor={{color}}>{{ sub.d5h }}</td>
+                        <td bgcolor={{color}}>{{ sub.d5a }}</td>
+                        <td>Croatia</td>
+                        <th>D6</th>
+                        <td>Nigeria</td>
+                        {% if sub.d6h==1 and sub.d6a==2 %} {% set color='#00cc00' %} {% elif sub.d6h
+                        < sub.d6a %} {% set color='#ffff66' %} {% else %} {% set color='#ff4d4d' %} {% endif %} <td bgcolor={{color}}>{{ sub.d6h }}</td>
+                            <td bgcolor={{color}}>{{ sub.d6a }}</td>
+                            <td>Argentina</td>
                 </tr>
                 <tr>
                     <th colspan="10">Group E</th>
@@ -516,8 +516,9 @@
                     <th colspan="2">2nd</th>
                 </tr>
                 <tr>
-                    {% set out=['Egypt', 'Saudi Arabia', 'Morocco', 'Iran', 'Peru', 'Australia', 'Costa Rica', 'Tunisia', 'Panama', 'Poland']
-                    %} {% set first=['Uruguay', 'Spain', 'France'] %} {% set second=['Russia', 'Portugal', 'Denmark'] %}
+                    {% set out=['Egypt', 'Saudi Arabia', 'Morocco', 'Iran', 'Peru', 'Australia', 'Costa Rica', 'Tunisia', 'Panama', 'Poland',
+                    'Nigeria', 'Iceland'] %} {% set first=['Uruguay', 'Spain', 'France', 'Croatia'] %} {% set second=['Russia',
+                    'Portugal', 'Denmark', 'Argentina'] %}
                     <th>A</th>
                     {% if sub.a1 in first%} {% set color='#00cc00' %} {% elif sub.a1 in second %} {% set color='#ffff66' %} {% elif sub.a1 in
                     out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
@@ -542,9 +543,11 @@
                     out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.c2 }}</td>
                     <th>D</th>
-                    {% if sub.d1 in out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.d1 in first%} {% set color='#00cc00' %} {% elif sub.d1 in second %} {% set color='#ffff66' %} {% elif sub.d1 in
+                    out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.d1 }}</td>
-                    {% if sub.d2 in out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.d2 in second%} {% set color='#00cc00' %} {% elif sub.d2 in first %} {% set color='#ffff66' %} {% elif sub.d2 in
+                    out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.d2 }}</td>
                 </tr>
                 <tr>
