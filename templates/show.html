@@ -343,7 +343,7 @@
                         <th>E6</th>
                         <td>Switzerland</td>
                         {% if sub.e6h==2 and sub.e6a==2 %} {% set color='#00cc00' %} {% elif sub.e6h == sub.e6a %} {% set color='#ffff66' %} {% else
-                        %} {% set color='#ff4e4d' %} {% endif %#}
+                        %} {% set color='#ff4e4d' %} {% endif %}
                         <td bgcolor={{color}}>{{ sub.e6h }}</td>
                         <td bgcolor={{color}}>{{ sub.e6a }}</td>
                         <td>Costa Rica</td>
@@ -516,7 +516,7 @@
                 </tr>
                 <tr>
                     {% set out=['Egypt', 'Saudi Arabia', 'Morocco', 'Iran', 'Peru', 'Australia', 'Costa Rica', 'Tunisia', 'Panama', 'Poland',
-                    'Nigeria', 'Iceland', 'Germany', 'South Korea', 'Cosa Rica', 'Serbia'] %} {% set first=['Uruguay', 'Spain',
+                    'Nigeria', 'Iceland', 'Germany', 'South Korea', 'Costa Rica', 'Serbia'] %} {% set first=['Uruguay', 'Spain',
                     'France', 'Croatia', 'Sweden', 'Brazil'] %} {% set second=['Russia', 'Portugal', 'Denmark', 'Argentina',
                     'Mexico', 'Switzerland'] %}
                     <th>A</th>
