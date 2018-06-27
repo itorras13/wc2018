@@ -650,7 +650,8 @@
                     <th></th>
                 </tr>
                 <tr>
-                    {#% if sub.top_scorer != 'Antoine Griezmann' %} {% set color='#ff4d4d' %} {% else %} {% set color='#00cc00' %} {% endif %#}
+                    {% set color='#ffffff' %} {#% if sub.top_scorer != 'Antoine Griezmann' %} {% set color='#ff4d4d' %} {% else %} {% set color='#00cc00'
+                    %} {% endif %#}
                     <td colspan="3" bgcolor={{color}}>{{ sub.golden_glove }}</td>
                     <td colspan="3" bgcolor={{color}}>{{ sub.golden_boot }}</td>
                     <td colspan="3" bgcolor={{color}}>{{ sub.golden_ball }}</td>
