@@ -481,17 +481,16 @@
                 <tr>
                     <th>H5</th>
                     <td>Japan</td>
-                    {% set color='#ffffff' %} {#% if sub.h5h==0 and sub.h5a==0 %} {% set color='#00cc00' %} {% elif sub.h5h == sub.h5a %} {%
-                    set color='#fffg66' %} {% else %} {% set color='#ff4e4d' %} {% endif %#}
-                    <td bgcolor={{color}}>{{ sub.h5h }}</td>
-                    <td bgcolor={{color}}>{{ sub.h5a }}</td>
-                    <td>Poland</td>
-                    <th>H6</th>
-                    <td>Senegal</td>
-                    {#% if sub.h6h==0 and sub.h6a==1 %} {% set color='#00cc00' %} {% elif sub.h6h
-                    < sub.h6a %} {% set color='#fffg66' %} {% else %} {% set color='#ff4e4d' %} {% endif %#} <td bgcolor={{color}}>{{ sub.h6h }}</td>
-                        <td bgcolor={{color}}>{{ sub.h6a }}</td>
-                        <td>Colombia</td>
+                    {% set color='#ffffff' %} {% if sub.h5h==0 and sub.h5a==1 %} {% set color='#00cc00' %} {% elif sub.h5h
+                    < sub.h5a %} {% set color='#fffg66' %} {% else %} {% set color='#ff4e4d' %} {% endif %} <td bgcolor={{color}}>{{ sub.h5h }}</td>
+                        <td bgcolor={{color}}>{{ sub.h5a }}</td>
+                        <td>Poland</td>
+                        <th>H6</th>
+                        <td>Senegal</td>
+                        {% if sub.h6h==0 and sub.h6a==1 %} {% set color='#00cc00' %} {% elif sub.h6h
+                        < sub.h6a %} {% set color='#fffg66' %} {% else %} {% set color='#ff4e4d' %} {% endif %} <td bgcolor={{color}}>{{ sub.h6h }}</td>
+                            <td bgcolor={{color}}>{{ sub.h6a }}</td>
+                            <td>Colombia</td>
                 </tr>
                 <tr>
                     <th colspan="10">Group Standings</th>
@@ -516,9 +515,9 @@
                 </tr>
                 <tr>
                     {% set out=['Egypt', 'Saudi Arabia', 'Morocco', 'Iran', 'Peru', 'Australia', 'Costa Rica', 'Tunisia', 'Panama', 'Poland',
-                    'Nigeria', 'Iceland', 'Germany', 'South Korea', 'Costa Rica', 'Serbia'] %} {% set first=['Uruguay', 'Spain',
-                    'France', 'Croatia', 'Sweden', 'Brazil'] %} {% set second=['Russia', 'Portugal', 'Denmark', 'Argentina',
-                    'Mexico', 'Switzerland'] %}
+                    'Nigeria', 'Iceland', 'Germany', 'South Korea', 'Costa Rica', 'Serbia', 'Senegal'] %} {% set first=['Uruguay',
+                    'Spain', 'France', 'Croatia', 'Sweden', 'Brazil', 'Colombia'] %} {% set second=['Russia', 'Portugal',
+                    'Denmark', 'Argentina', 'Mexico', 'Switzerland', 'Japan'] %}
                     <th>A</th>
                     {% if sub.a1 in first%} {% set color='#00cc00' %} {% elif sub.a1 in second %} {% set color='#ffff66' %} {% elif sub.a1 in
                     out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
@@ -573,9 +572,11 @@
                     {% if sub.g2 in out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.g2 }}</td>
                     <th>H</th>
-                    {% if sub.h1 in out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.h1 in first%} {% set color='#00cc00' %} {% elif sub.h1 in second %} {% set color='#ffff66' %} {% elif sub.h1 in
+                    out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.h1 }}</td>
-                    {% if sub.h2 in out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.h2 in second%} {% set color='#00cc00' %} {% elif sub.h2 in first %} {% set color='#ffff66' %} {% elif sub.h2 in
+                    out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.h2 }}</td>
                 </tr>
                 <tr>
