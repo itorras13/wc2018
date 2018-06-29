@@ -14,7 +14,7 @@
                         <th>Name</th>
                         <th>Winner</th>
                         <th>Points</th>
-                        <th>Paid</th>
+                        <th>Max Points</th>
                     </tr>
                 </thead>
                 <tbody id="standingsBody">
@@ -32,15 +32,7 @@
                         <td>{{submission['winner']}}</td>
                         {% endif %}
                         <td>{{submission['points']}}</td>
-                        {% if submission['paid'] %}
-                        <td>
-                            <i class="fa fa-check" aria-hidden="true"></i>
-                        </td>
-                        {% else %}
-                        <td>
-                            <i class="fa fa-times" aria-hidden="true"></i>
-                        </td>
-                        {% endif %}
+                        <td style="text-align:center">{{submission['left']}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>

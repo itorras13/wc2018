@@ -36,6 +36,49 @@ def addPlace(submissions):
         submission['place'] = place
     return submissions
 
+def pointsPossible(sub):
+    quarter_possibilities = [['Uruguay', 'Portugal'], ['France', 'Argentina'],
+                             ['Brazil', 'Mexico'], ['Belgium','Japan'], 
+                             ['Spain', 'Russia'], ['Croatia', 'Denmark'], 
+                             ['Sweden', 'Switzerland'], ['Colombia', 'England']]
+    semi_possibilities = [['Uruguay', 'Portugal', 'France', 'Argentina'], 
+                            ['Brazil', 'Mexico', 'Belgium', 'Japan'], 
+                            ['Spain', 'Russia', 'Croatia', 'Denmark'],
+                            ['Sweden', 'Switzerland', 'Colombia', 'England']]
+    final_possibilities = [['Uruguay', 'Portugal', 'France', 'Argentina'
+                            ,'Brazil', 'Mexico', 'Belgium', 'Japan'], 
+                            ['Spain', 'Russia', 'Croatia', 'Denmark',
+                            'Sweden', 'Switzerland', 'Colombia', 'England']]
+    all_left = ['Uruguay', 'Portugal', 'France', 'Argentina'
+                ,'Brazil', 'Mexico', 'Belgium', 'Japan', 
+                'Spain', 'Russia', 'Croatia', 'Denmark',
+                'Sweden', 'Switzerland', 'Colombia', 'England']
+    quarters = [sub.r1, sub.r2, sub.r3, sub.r4, sub.r5, sub.r6, sub.r7, sub.r8]
+    semis = [sub.q1, sub.q2, sub.q3, sub.q4]
+    finalists = [sub.s1, sub.s2]
+    winner = sub.final
+    third = sub.third
+    points = 0
+    for rGame in quarter_possibilities:
+        for team in rGame:
+            if team in quarters:
+                points += 6
+                break
+    for qGame in semi_possibilities:
+        for team in qGame:
+            if team in semis:
+                points += 9
+    for sGame in final_possibilities:
+        for team in sGame:
+            if team in finalists:
+                points += 12
+    if winner in all_left:
+        points += 25
+    if third in all_left:
+        points += 6
+    points += 18
+    return points
+            
 
 @app.route('/')
 def index():
@@ -88,6 +131,7 @@ def get_submissions(type):
             new_sub['points'] = sub.points
             new_sub['paid'] = sub.paid
             new_sub['id'] = sub.id
+            new_sub['left'] = pointsPossible(sub) + sub.points
             updated_submissions.append(new_sub)
         return updated_submissions
 
