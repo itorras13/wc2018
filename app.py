@@ -37,19 +37,19 @@ def addPlace(submissions):
     return submissions
 
 def pointsPossible(sub):
-    quarter_possibilities = [['Uruguay', 'Portugal'],
+    quarter_possibilities = [
                              ['Brazil', 'Mexico'], ['Belgium','Japan'], 
                              ['Spain', 'Russia'], ['Croatia', 'Denmark'], 
                              ['Sweden', 'Switzerland'], ['Colombia', 'England']]
-    semi_possibilities = [['Uruguay', 'Portugal', 'France'], 
+    semi_possibilities = [['Uruguay', 'France'], 
                             ['Brazil', 'Mexico', 'Belgium', 'Japan'], 
                             ['Spain', 'Russia', 'Croatia', 'Denmark'],
                             ['Sweden', 'Switzerland', 'Colombia', 'England']]
-    final_possibilities = [['Uruguay', 'Portugal', 'France'
+    final_possibilities = [['Uruguay', 'France'
                             ,'Brazil', 'Mexico', 'Belgium', 'Japan'], 
                             ['Spain', 'Russia', 'Croatia', 'Denmark',
                             'Sweden', 'Switzerland', 'Colombia', 'England']]
-    all_left = ['Uruguay', 'Portugal', 'France'
+    all_left = ['Uruguay', 'France'
                 ,'Brazil', 'Mexico', 'Belgium', 'Japan', 
                 'Spain', 'Russia', 'Croatia', 'Denmark',
                 'Sweden', 'Switzerland', 'Colombia', 'England']
