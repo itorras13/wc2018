@@ -586,26 +586,34 @@
                 <tr>
                     <td></td>
                     {% set out=['Egypt', 'Saudi Arabia', 'Morocco', 'Iran', 'Peru', 'Australia', 'Costa Rica', 'Tunisia', 'Panama', 'Poland',
-                    'Nigeria', 'Iceland', 'Germany', 'South Korea', 'Costa Rica', 'Serbia', 'Senegal', 'Argentina', 'Portugal'] %} {% set r16=['France', 'Uruguay'] %}
-                    {% if sub.r1 in out %} {% set color='#ff4d4d' %} {% elif sub.r1 in r16 %} {% set color='#00cc00' %} {% else %} {%set color='#ffffff' %} {% endif %}
+                    'Nigeria', 'Iceland', 'Germany', 'South Korea', 'Costa Rica', 'Serbia', 'Senegal', 'Argentina', 'Portugal',
+                    'Spain'] %} {% set r16=['France', 'Uruguay', 'Russia'] %} {% if sub.r1 in out %} {% set color='#ff4d4d'
+                    %} {% elif sub.r1 in r16 %} {% set color='#00cc00' %} {% else %} {%set color='#ffffff' %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.r1 }}</td>
-                    {% if sub.r2 in out %} {% set color='#ff4d4d' %} {% elif sub.r2 in r16 %} {% set color='#00cc00' %}  {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.r2 in out %} {% set color='#ff4d4d' %} {% elif sub.r2 in r16 %} {% set color='#00cc00' %} {% else %} {%set color='#ffffff'
+                    %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.r2 }}</td>
-                    {% if sub.r3 in out %} {% set color='#ff4d4d' %} {% elif sub.r3 in r16 %} {% set color='#00cc00' %}  {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.r3 in out %} {% set color='#ff4d4d' %} {% elif sub.r3 in r16 %} {% set color='#00cc00' %} {% else %} {%set color='#ffffff'
+                    %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.r3 }}</td>
-                    {% if sub.r4 in out %} {% set color='#ff4d4d' %}  {% elif sub.r4 in r16 %} {% set color='#00cc00' %} {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.r4 in out %} {% set color='#ff4d4d' %} {% elif sub.r4 in r16 %} {% set color='#00cc00' %} {% else %} {%set color='#ffffff'
+                    %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.r4 }}</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td></td>
-                    {% if sub.r5 in out %} {% set color='#ff4d4d' %} {% elif sub.r5 in r16 %} {% set color='#00cc00' %}  {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.r5 in out %} {% set color='#ff4d4d' %} {% elif sub.r5 in r16 %} {% set color='#00cc00' %} {% else %} {%set color='#ffffff'
+                    %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.r5 }}</td>
-                    {% if sub.r6 in out %} {% set color='#ff4d4d' %} {% elif sub.r6 in r16 %} {% set color='#00cc00' %}  {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.r6 in out %} {% set color='#ff4d4d' %} {% elif sub.r6 in r16 %} {% set color='#00cc00' %} {% else %} {%set color='#ffffff'
+                    %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.r6 }}</td>
-                    {% if sub.r7 in out %} {% set color='#ff4d4d' %} {% elif sub.r7 in r16 %} {% set color='#00cc00' %}  {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.r7 in out %} {% set color='#ff4d4d' %} {% elif sub.r7 in r16 %} {% set color='#00cc00' %} {% else %} {%set color='#ffffff'
+                    %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.r7 }}</td>
-                    {% if sub.r8 in out %} {% set color='#ff4d4d' %} {% elif sub.r8 in r16 %} {% set color='#00cc00' %}  {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.r8 in out %} {% set color='#ff4d4d' %} {% elif sub.r8 in r16 %} {% set color='#00cc00' %} {% else %} {%set color='#ffffff'
+                    %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.r8 }}</td>
                     <td></td>
                 </tr>
