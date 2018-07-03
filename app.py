@@ -37,31 +37,24 @@ def addPlace(submissions):
     return submissions
 
 def pointsPossible(sub):
-    quarter_possibilities = [
-                             ['Colombia', 'England']]
     semi_possibilities = [['Uruguay', 'France'], 
                             ['Brazil', 'Belgium'], 
                             ['Russia', 'Croatia'],
-                            ['Sweden', 'Colombia', 'England']]
+                            ['Sweden', 'England']]
     final_possibilities = [['Uruguay', 'France'
                             ,'Brazil', 'Belgium'], 
                             ['Russia', 'Croatia',
-                            'Sweden', 'Colombia', 'England']]
+                            'Sweden', 'England']]
     all_left = ['Uruguay', 'France'
                 ,'Brazil', 'Belgium', 
                 'Russia', 'Croatia',
-                'Sweden', 'Colombia', 'England']
+                'Sweden', 'England']
     quarters = [sub.r1, sub.r2, sub.r3, sub.r4, sub.r5, sub.r6, sub.r7, sub.r8]
     semis = [sub.q1, sub.q2, sub.q3, sub.q4]
     finalists = [sub.s1, sub.s2]
     winner = sub.final
     third = sub.third
     points = 0
-    for rGame in quarter_possibilities:
-        for team in rGame:
-            if team in quarters:
-                points += 6
-                break
     for qGame in semi_possibilities:
         for team in qGame:
             if team in semis:
