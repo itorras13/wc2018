@@ -59,10 +59,12 @@ def pointsPossible(sub):
         for team in qGame:
             if team in semis:
                 points += 9
+                break
     for sGame in final_possibilities:
         for team in sGame:
             if team in finalists:
                 points += 12
+                break
     if winner in all_left:
         points += 25
     if third in all_left:
