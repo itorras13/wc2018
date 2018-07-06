@@ -625,8 +625,8 @@
                     <td></td>
                     {% set out=['Egypt', 'Saudi Arabia', 'Morocco', 'Iran', 'Peru', 'Australia', 'Costa Rica', 'Tunisia', 'Panama', 'Poland',
                     'Nigeria', 'Iceland', 'Germany', 'South Korea', 'Costa Rica', 'Serbia', 'Senegal', 'Argentina', 'Portugal',
-                    'Spain', 'Denmark', 'Mexico', 'Japan', 'Switzerland', 'Colombia', 'Uruguay'] %} {% set quarters=['France']
-                    %} {% if sub.q1 in out %} {% set color='#ff4d4d' %} {% elif sub.q1 in quarters %} {% set color='#00cc00'
+                    'Spain', 'Denmark', 'Mexico', 'Japan', 'Switzerland', 'Colombia', 'Uruguay', 'Brazil'] %} {% set quarters=['France',
+                    'Belgium'] %} {% if sub.q1 in out %} {% set color='#ff4d4d' %} {% elif sub.q1 in quarters %} {% set color='#00cc00'
                     %} {% else %} {%set color='#ffffff' %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.q1 }}</td>
                     {% if sub.q2 in out %} {% set color='#ff4d4d' %} {% elif sub.q2 in quarters %} {% set color='#00cc00' %} {% else %} {%set
