@@ -37,15 +37,13 @@ def addPlace(submissions):
     return submissions
 
 def pointsPossible(sub):
-    semi_possibilities = [ 
-                            ['Russia', 'Croatia'],
-                            ['Sweden', 'England']]
+    semi_possibilities = [ ['Russia', 'Croatia']]
     final_possibilities = [[ 'France', 'Belgium'], 
                             ['Russia', 'Croatia',
-                            'Sweden', 'England']]
+                             'England']]
     all_left = [ 'France', 'Belgium', 
                 'Russia', 'Croatia',
-                'Sweden', 'England']
+                 'England']
     quarters = [sub.r1, sub.r2, sub.r3, sub.r4, sub.r5, sub.r6, sub.r7, sub.r8]
     semis = [sub.q1, sub.q2, sub.q3, sub.q4]
     finalists = [sub.s1, sub.s2]
