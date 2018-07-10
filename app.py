@@ -37,10 +37,10 @@ def addPlace(submissions):
     return submissions
 
 def pointsPossible(sub):
-    final_possibilities = [[ 'France', 'Belgium'], 
+    final_possibilities = [ 
                             [ 'Croatia',
                              'England']]
-    all_left = [ 'France', 'Belgium', 
+    all_left = [ 'France', 
                 'Croatia',
                  'England']
     quarters = [sub.r1, sub.r2, sub.r3, sub.r4, sub.r5, sub.r6, sub.r7, sub.r8]
@@ -56,7 +56,7 @@ def pointsPossible(sub):
                 break
     if winner in all_left:
         points += 25
-    if third in all_left:
+    if third in ['Belgium', 'Croatia', 'England']:
         points += 6
     points += 18
     return points

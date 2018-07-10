@@ -653,14 +653,21 @@
                     <th></th>
                 </tr>
                 <tr>
+                    {% set out=['Egypt', 'Saudi Arabia', 'Morocco', 'Iran', 'Peru', 'Australia', 'Costa Rica', 'Tunisia', 'Panama', 'Poland',
+                    'Nigeria', 'Iceland', 'Germany', 'South Korea', 'Costa Rica', 'Serbia', 'Senegal', 'Argentina', 'Portugal',
+                    'Spain', 'Denmark', 'Mexico', 'Japan', 'Switzerland', 'Colombia', 'Uruguay', 'Brazil', 'Sweden', 'Russia',
+                    'Belgium'] %} {% set semis=['France'] %}
                     <td></td>
-                    {% if sub.s1 in out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.s1 in out %} {% set color='#ff4d4d' %} {% elif sub.s1 in semis %} {% set color='#00cc00' %} {% else %} {%set color='#ffffff'
+                    %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.s1 }}</td>
-                    {% if sub.s2 in out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.s2 in out %} {% set color='#ff4d4d' %} {% elif sub.s2 in semis %} {% set color='#00cc00' %} {% else %} {%set color='#ffffff'
+                    %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.s2 }}</td>
                     {% if sub.final in out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.final }}</td>
-                    {% if sub.third in out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
+                    {% if sub.third in ['Belgium', 'Croatia', 'England'] %} {% set color='#ffffff' %} {% else %} {%set color='#ff4d4d' %} {%
+                    endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.third }}</td>
                     <td></td>
                 </tr>
