@@ -24,8 +24,8 @@
                         <td id="{{submission['name']}}">
                             <a href="{{ '/show/'+submission['id']|string}}">{{submission['name']}}</a>
                         </td>
-                        {% if submission['winner'] in ['Germany', 'Argentina', 'Portugal', 'Spain', 'Mexico', 'Colombia', 'Uruguay', 'Brazil', 'Belgium']
-                        %}
+                        {% if submission['winner'] in ['Germany', 'Argentina', 'Portugal', 'Spain', 'Mexico', 'Colombia', 'Uruguay', 'Brazil', 'Belgium',
+                        'England'] %}
                         <td>
                             <strike>{{submission['winner']}}</strike>
                         </td>
