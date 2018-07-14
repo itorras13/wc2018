@@ -666,7 +666,7 @@
                     <td colspan="2" bgcolor={{color}}>{{ sub.s2 }}</td>
                     {% if sub.final in out %} {% set color='#ff4d4d' %} {% else %} {%set color='#ffffff' %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.final }}</td>
-                    {% if sub.third in ['Belgium', 'England'] %} {% set color='#ffffff' %} {% else %} {%set color='#ff4d4d' %} {% endif %}
+                    {% if sub.third == 'Belgium' %} {% set color='#00cc00' %} {% else %} {%set color='#ff4d4d' %} {% endif %}
                     <td colspan="2" bgcolor={{color}}>{{ sub.third }}</td>
                     <td></td>
                 </tr>

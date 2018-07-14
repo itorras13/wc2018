@@ -40,12 +40,9 @@ def pointsPossible(sub):
     all_left = [ 'France', 
                 'Croatia']
     winner = sub.final
-    third = sub.third
     points = 0
     if winner in all_left:
         points += 25
-    if third in ['Belgium', 'England']:
-        points += 6
     points += 18
     return points
             
