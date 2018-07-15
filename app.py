@@ -38,7 +38,6 @@ def addPlace(submissions):
 
 def pointsPossible(sub):
     points = 0
-    points += 18
     return points
             
 

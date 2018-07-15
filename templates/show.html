@@ -680,10 +680,11 @@
                     <th></th>
                 </tr>
                 <tr>
-                    {% set color='#ffffff' %} {#% if sub.top_scorer != 'Antoine Griezmann' %} {% set color='#ff4d4d' %} {% else %} {% set color='#00cc00'
-                    %} {% endif %#}
+                    {% if sub.golden_glove == 'Thibaut Courtois' %} {% set color='#00cc00' %} {% else %} {%set color='#ff4d4d' %} {% endif %}
                     <td colspan="3" bgcolor={{color}}>{{ sub.golden_glove }}</td>
+                    {% if sub.golden_boot == 'Harry Kane' %} {% set color='#00cc00' %} {% else %} {%set color='#ff4d4d' %} {% endif %}
                     <td colspan="3" bgcolor={{color}}>{{ sub.golden_boot }}</td>
+                    {% if sub.golden_ball == 'Other' %} {% set color='#00cc00' %} {% else %} {%set color='#ff4d4d' %} {% endif %}
                     <td colspan="3" bgcolor={{color}}>{{ sub.golden_ball }}</td>
                     <td></td>
                 </tr>
