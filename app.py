@@ -37,12 +37,7 @@ def addPlace(submissions):
     return submissions
 
 def pointsPossible(sub):
-    all_left = [ 'France', 
-                'Croatia']
-    winner = sub.final
     points = 0
-    if winner in all_left:
-        points += 25
     points += 18
     return points
             
